@@ -39,4 +39,12 @@ Create a directorires for cmake build
 Then run the make files  
  ```cmake ../..```  
 Execute the all the files  
- ```make -j$(nproc)```  
+ ```make -j$(nproc)``` 
+ Install VS Code: It is a coding editor.
+  
+Steps to install VS Code:   
+    1. Download it from "https://code.visualstudio.com/docs?dv=win".  
+    2. Run the installer.  
+    3. By default, it will be installed under "C:\Users\User_Name\AppData\Local\Programs\Microsoft VS Code" path.   
+    4. If there are any errors in the installation check the path in the environment variables.   
+    
