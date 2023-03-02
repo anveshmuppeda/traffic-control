@@ -15,8 +15,8 @@ We simulate our algorithm using SUMO (Simulation of Urban MObility) on a real-wo
 
 
 SUMO Setup:
-Install Python
-  sudo apt-get install python
+Install Python  
+  ```sudo apt-get install python```.  
 Install git
   sudo apt-get install git
 Install cmake
