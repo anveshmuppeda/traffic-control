@@ -3,42 +3,32 @@ import traci
 import plot_metrics
 import array
 
-T_SWITCH = 12
-T_TRANS = 4
-OCC_TH_HIGH = 70.0
-OCC_TH_LOW = 30.0
-NUM_INTN_SIDES = 15
-NUM_LANES = [3, 2, 3, 2, 3, 2, 3, 2, 1, 1, 1, 1, 2, 1, 2]
-
-TL_IDS = ["gneJ20", "gneJ18", "151147259", "gneJ69"]        # Intersection traffic light IDs
-
-# Intersection phases
-TL_PHASES = {'N1_G': 0, 'N1_Y': 1, 'N2_G': 2, 'N2_Y': 3, 'N3_G': 4, 'N3_Y': 5, 'N4_G': 6, 'N4_Y': 7,
-             'N5_G': 0, 'N5_Y': 1, 'N6_G': 2, 'N6_Y': 3, 'N7_G': 4, 'N7_Y': 5, 'N8_G': 6, 'N8_Y': 7,
-             'N9_G': 0, 'N9_Y': 1, 'N10_G': 2, 'N10_Y': 3, 'N11_G': 4, 'N11_Y': 5, 'N12_G': 6, 'N12_Y': 7,
-             'N13_G': 0, 'N13_Y': 1, 'N14_G': 2, 'N14_Y': 3, 'N15_G': 4, 'N15_Y': 5}
-
+tswitch = 12
+ttrains = 4
+occ = 70.0
+thlow = 30.0
+sides = 15
+lanes = [3, 2, 3, 2, 3, 2, 3 ]
+IDStl = ["gneJ20", "gneJ18", "151147259", "gneJ69"]
 
 sumoBinary = checkBinary('sumo-gui')
 first_act_of_run = 0
 skip_time = 0
 t = 0
 
-curr_state = array.array('f', [0] * NUM_INTN_SIDES)
-prev_state = array.array('f', [0] * NUM_INTN_SIDES)
+statecurrent = array.array('f', [0] * sides)
+stateprevios = array.array('f', [0] * sides)
 
-def start_new_run(run):
-
-    global curr_state, prev_state, intn_prev_action, first_act_of_run, skip_time, qlenfile
-
-    curr_state = array.array('f', [0] * NUM_INTN_SIDES)
-    prev_state = array.array('f', [0] * NUM_INTN_SIDES)
+def newrun(run):
+    global statecurrent, stateprevios, intn_prev_action, first_act_of_run, skip_time, qlenfile
+    statecurrent = array.array('f', [0] * sides)
+    stateprevios = array.array('f', [0] * sides)
     intn_prev_action = [1, 5, 9, 13]
     first_act_of_run = 0
     skip_time = 0
 
     if run == 0:
-        plot_metrics.init(T_TRANS + T_SWITCH)
+        plot_metrics.init(ttrains + tswitch)
 
     if platform.system() == 'Linux':
         os.system("python \"$SUMO_HOME/tools/randomTrips.py\" -n ../scripts/txmap.net.xml --trip-attributes=\"type=\\\"light_norm_heavy\\\"\" "
@@ -53,16 +43,16 @@ def start_new_run(run):
     qlenfile.flush()
     return
   
-def get_current_state():
-    state = array.array('f', [0] * NUM_INTN_SIDES)
-    for i in range(NUM_INTN_SIDES):
+def currentstate():
+    state = array.array('f', [0] * sides)
+    for i in range(sides):
         n = 0.0
-        for j in range(NUM_LANES[i]):
+        for j in range(lanes[i]):
             n = max(n, traci.lanearea.getLastStepOccupancy("e2det_N"+str(i+1)+"_"+str(j)))
         state[i] = n
     return state
 
-def endis_sumo_guimode(mode):
+def guimode(mode):
     global sumoBinary
     if mode == 1:
         sumoBinary = checkBinary('sumo-gui')
