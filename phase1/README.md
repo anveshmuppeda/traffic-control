@@ -76,7 +76,7 @@ pip3 install texttest
 To install the most common dependencies with your package manager on ubuntu do:   
 ```sudo apt-get install python3-pandas python3-rtree python3-pyproj```
 
-### Getting the source code.  
+## Getting the SUMO source code.  
 The following commands should be issued:   
 ```
 git clone --recursive https://github.com/eclipse/sumo
