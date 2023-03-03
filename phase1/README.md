@@ -105,3 +105,9 @@ Steps to install VS Code:
     2. Run the installer.  
     3. By default, it will be installed under "C:\Users\User_Name\AppData\Local\Programs\Microsoft VS Code" path.   
     4. If there are any errors in the installation check the path in the environment variables.  
+
+  ## Commands to run the code.  
+  ```
+  winpty wsl  
+  sudo su(enter usernanme and password) 
+  python <python-file>  
