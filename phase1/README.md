@@ -12,6 +12,10 @@ Key Points
 We simulate our algorithm using SUMO (Simulation of Urban MObility) on a real-world road network and compare it against the traditional Static Signalling (SS), Longest Queue First (LQF), and another RL-based approach of predictive n- step SARSA [1]. We evaluate these algorithms based on traffic parameters such as waiting time, queue length, and traffic dispersion time.
 
 ## Install Gitbash on Windows
+### Step 1
+Download the Git Bash setup from the official website: https://git-scm.com/.  
+### Step 2.  
+Download the installer and run it.  
 
 ## Install Linux on Windows with WSL.  
 ### Install WSL command.  
@@ -63,12 +67,6 @@ Execute the all the files
     texttest, xvfb and tkdiff (for the acceptance tests)  
     flake, astyle and autopep for style checking.  
  
- Install VS Code: It is a coding editor.
-Steps to install VS Code:   
-    1. Download it from "https://code.visualstudio.com/docs?dv=win".  
-    2. Run the installer.  
-    3. By default, it will be installed under "C:\Users\User_Name\AppData\Local\Programs\Microsoft VS Code" path.   
-    4. If there are any errors in the installation check the path in the environment variables.   
 ### optional libraries and tools is:   
 ```
 sudo apt-get install ccache libavformat-dev libswscale-dev libopenscenegraph-dev python3-pip python3-setuptools
@@ -99,3 +97,11 @@ cmake ../..
 cmake -D CMAKE_BUILD_TYPE=Debug ../..
 make -j $(nproc)
 ```
+
+##  Install VS Code:  
+  It is a coding editor.   
+Steps to install VS Code:   
+    1. Download it from "https://code.visualstudio.com/docs?dv=win".  
+    2. Run the installer.  
+    3. By default, it will be installed under "C:\Users\User_Name\AppData\Local\Programs\Microsoft VS Code" path.   
+    4. If there are any errors in the installation check the path in the environment variables.  
