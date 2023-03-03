@@ -111,7 +111,7 @@ Steps to install VS Code:
   winpty wsl  
   sudo su(enter usernanme and password) 
   python <python-file>  
-
+  ```
   ## Issues.  
-  Currently there are some issues with SUMO setup(path and dependecies). We need to fix the SUMO first then we can proceed further, since SUMO is depedent on entire processes.
+  Currently there are some issues with SUMO setup(path and dependecies). We need to fix the SUMO first then we can proceed further, since SUMO is depedent on entire processes.   
   SUMO's precompiled binary is also available as a Flatpak and is hosted on Flathub. Any system that supports Flatpak should be able to run SUMO this way. So we are trying to fix the Flatpak and add the Flathub repo to the existing one.
